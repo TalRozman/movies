@@ -12,7 +12,7 @@ const ListMovies = () => {
 
     useEffect(() => {
     //     // dispatch(getMoviesAsync()).then(() =>
-            editArray(data.results)
+            editArray(data.movies)
         // )
     //     // eslint-disable-next-line
     }, [])
@@ -45,14 +45,14 @@ const ListMovies = () => {
     return (
         <div id="myCarousel" className="carousel slide container" data-bs-ride="carousel">
             <div className="carousel-inner w-100">
-                {data.results?.map((movie, index:number) => (
+                {data.movies?.map((movie, index:number) => (
                     <div className={`carousel-item ${index === +0 ? 'active' : ''}`} key={index}>
                         <div className="col-md-3">
                             <div className="card card-body">
-                            {movie.primaryImage ? <img src={movie.primaryImage?.url} className="card-img-top" alt={movie.primaryImage?.caption.plainText} /> : <h2 className="card-img-top">No Image</h2>}
+                            {movie.posterUrl ? <img src={movie.posterUrl} className="card-img-top" alt={movie.title} /> : <h2 className="card-img-top">No Image</h2>}
                             <br/>
-                            <h5 className="card-title">{movie.titleText.text}</h5>
-                            <p className="card-text">{movie.releaseDate ? movie.releaseDate.year : "No year info"}</p>
+                            <h5 className="card-title">{movie.title}</h5>
+                            <p className="card-text">{movie.year ? movie.year : "No year info"}</p>
                             </div>
                         </div>
                     </div>
